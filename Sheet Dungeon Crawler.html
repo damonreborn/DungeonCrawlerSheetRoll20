@@ -91,7 +91,7 @@
     <fieldset class="repeating_skills">
       <div class="grid-skills">
         <div class="grid-skills-item-buttons u-flex u-flex-align-center">
-		  <button class="button button--roll" type="roll" name="roll_Learn" value="&{template:troika} {{title=Apprendre}} {{subTitle=@{skillName} [@{skillRank} - @{skillRollModifier}]}} {{rollModifier=@{skillRollModifier}}} {{attribute=[[@{skillRank}-@{skillRollModifier}]]}} {{rollSkillUpper=true}} {{rollSkill=[[ [[1d6]] + [[1d6]] ]]}} {{r1=$[[1]]}} {{r2=$[[2]]}}"><span title="Permet d'apprendre la compétence" class="button-title"> ✦ </span></button>
+		  <button class="button button--roll" type="roll" name="roll_Learn" value="&{template:troika} {{title=Apprendre}} {{subTitle=@{skillName} [[@{skillRank} - @{skillRollModifier}]]}} {{rollModifier=@{skillRollModifier}}} {{attribute=[[@{skillRank}-@{skillRollModifier}]]}} {{rollSkillUpper=true}} {{rollSkill=[[ [[1d6]] + [[1d6]] ]]}} {{r1=$[[1]]}} {{r2=$[[2]]}}"><span title="Permet d'apprendre la compétence" class="button-title"> ✦ </span></button>
 		  <button class="button button--roll" type="roll" name="roll_Under" value="&{template:troika} {{title=Jet de Compétences / Sigils : Egale ou Inférieur}} {{subTitle=@{skillName} [@{skillTotal}]}} {{rollModifier=@{skillRollModifier}}} {{attribute=[[@{skillTotal}]]}} {{rollSkillUnder=true}} {{rollSkill=[[ [[1d6]] + [[1d6]] ]]}} {{r1=$[[1]]}} {{r2=$[[2]]}}"><span title="Jets non opposés"  class="button-title"> ▼ </span></button>
           <button class="button button--roll" type="roll" name="roll_Vs" value="&{template:troika} {{title=Skill Roll: Versus}} {{subTitle=@{skillName} [@{skillTotal}]}} {{rollModifier=@{skillRollModifier}}} {{attribute=[[@{skillTotal}]]}} {{rollSkillVersus=true}} {{rollSkill=[[ [[1d6]] + [[1d6]] + @{skillRank} + @{skillValue} + (3*@{skillSuccess}) ]]}} {{r1=$[[1]]}} {{r2=$[[2]]}}"><span title="Jets opposés"  class="button-title">Vs</span></button>
         </div>
@@ -139,7 +139,7 @@
     <fieldset class="repeating_weapons">
       <div class="grid-weapons">
         <div class="grid-weapons-item u-flex u-flex-align-center">
-          <button class="button button--roll" type="roll" name="roll_damage" value="&{template:troika} {{title=Damage}} {{subTitle=@{weapon}}} {{attribute=@{weapon}}} {{rollModifier=@{repDamageRollModifier}}} {{damageRoll=[[[[1d6]] + @{repDamageRollModifier}]]}} {{r1=$[[0]]}} {{wD1=@{weaponDamage1}}} {{wD2=@{weaponDamage2}}} {{wD3=@{weaponDamage3}}} {{wD4=@{weaponDamage4}}} {{wD5=@{weaponDamage5}}} {{wD6=@{weaponDamage6}}} {{wD7=@{weaponDamage7}}}"><span class="button-title">Damage</span></button>
+          <button class="button button--roll" type="roll" name="roll_damage" value="&{template:troika} {{title=Dégâts}} {{subTitle=@{weapon}}} {{attribute=@{weapon}}} {{rollModifier=@{repDamageRollModifier}}} {{damageRoll=[[[[1d6]] + @{repDamageRollModifier}]]}} {{r1=$[[0]]}} {{wD1=[[@{weaponDamage1}+?{Dégâts Bonus|0}]]}} {{wD2=[[@{weaponDamage2}+?{Dégâts Bonus|0}]]}} {{wD3=[[@{weaponDamage3}+?{Dégâts Bonus|0}]]}} {{wD4=[[@{weaponDamage4}+?{Dégâts Bonus|0}]]}} {{wD5=[[@{weaponDamage5}+?{Dégâts Bonus|0}]]}} {{wD6=[[@{weaponDamage6}+?{Dégâts Bonus|0}]]}} {{wD7=[[@{weaponDamage7}+?{Dégâts Bonus|0}]]}}"><span class="button-title">Damage</span></button>
         </div>
         <input class="o-input-line" type="text" name="attr_weapon"/>
         <input class="o-input-line" type="hidden" name="attr_repDamageRollModifier" value="@{damageRollModifier}"/>
@@ -416,7 +416,7 @@
       </div>
       <div class="sheet-template-total">{{rollSkill}}</div>
       <!-- Skill Vs: Fumble-->{{  #rollTotal() r1 1  }}{{  #rollTotal() r2 1  }}
-      <div class="sheet-template-row-head" data-i18n="Fumble!">Fumble!</div>{{  /rollTotal() r2 1  }}{{  /rollTotal() r1 1  }}
+      <div class="sheet-template-row-head sheet-template-footer--fail" data-i18n="Fumble!">Fumble!</div>{{  /rollTotal() r2 1  }}{{  /rollTotal() r1 1  }}
       <!-- Skill Vs: Mighty blow-->{{  #rollTotal() r1 6  }}{{  #rollTotal() r2 6  }}
       <div class="sheet-template-row-head" data-i18n="Mighty Blow!">Mighty Blow!</div>{{  /rollTotal() r2 6  }}{{  /rollTotal() r1 6  }}
     </div>{{  /rollSkillVersus  }}
